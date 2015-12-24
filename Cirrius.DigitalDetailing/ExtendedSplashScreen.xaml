@@ -7,9 +7,12 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <Canvas Background="#1d1d1d">
+    <Canvas>
+        <Canvas.Background>
+            <ImageBrush ImageSource="Assets/images/Backgrounds_Paper.jpg"/>
+        </Canvas.Background>
         <!-- The real position of these controls will change during runtime -->
-        <Image Stretch="None" x:Name="splashImage" Source="Assets/SplashScreen.png" Canvas.Left="350" Canvas.Top="250"/>
-        <ProgressRing x:Name="progressRing" Height="50" Width="50" IsActive="True" Canvas.Left="650" Canvas.Top="550"/>
+        <Image Stretch="None" x:Name="splashImage" Source="Assets/AppLogo.png" Canvas.Left="350" Canvas.Top="100"/>
+        <ProgressRing x:Name="progressRing" Foreground="White" Height="50" Width="50" IsActive="True" Canvas.Left="650" Canvas.Top="550"/>
     </Canvas>
 </Page>

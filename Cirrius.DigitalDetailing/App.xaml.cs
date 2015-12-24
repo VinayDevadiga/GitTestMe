@@ -6,7 +6,8 @@
 // Copyright (c) Microsoft Corporation. All rights reserved
 
 
-using Cirrius.Prism.StoreApps;
+
+using Microsoft.Practices.Prism.Mvvm;
 using System.Threading.Tasks;
 using Windows.ApplicationModel.Activation;
 
@@ -33,7 +34,16 @@ namespace Cirrius.DigitalDetailing
             this.ExtendedSplashScreenFactory = (splashscreen) => new ExtendedSplashScreen(splashscreen);
         }
 
-        protected override async Task OnLaunchApplication(LaunchActivatedEventArgs args)
+        /// <summary>
+        /// We use this method to simulate the loading of resources from different sources asynchronously.
+        /// </summary>
+        /// <returns></returns>
+        private async Task LoadAppResources()
+        {
+            await Task.Delay(7000);
+        }
+
+        protected async override Task OnLaunchApplicationAsync(LaunchActivatedEventArgs args)
         {
             if (args.PreviousExecutionState != ApplicationExecutionState.Running)
             {
@@ -42,15 +52,6 @@ namespace Cirrius.DigitalDetailing
             }
 
             this.NavigationService.Navigate("GroupedItems", null);
-        }
-
-        /// <summary>
-        /// We use this method to simulate the loading of resources from different sources asynchronously.
-        /// </summary>
-        /// <returns></returns>
-        private async Task LoadAppResources()
-        {
-            await Task.Delay(7000);
         }
     }
 }
